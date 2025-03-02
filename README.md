@@ -1,16 +1,13 @@
+[![Lede](https://img.shields.io/badge/source-Lede-deeppink.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede)
+[![openwrt](https://img.shields.io/badge/source-openwrt-tomato.svg?style=flat&logo=appveyor)](https://github.com/openwrt/openwrt)
+[![lienol](https://img.shields.io/badge/source-Lienol-yellow.svg?style=flat&logo=appveyor)](https://github.com/Lienol/openwrt)
+[![Mortal](https://img.shields.io/badge/source-Mortal-green.svg?style=flat&logo=appveyor)](https://github.com/immortalwrt/immortalwrt)
+[![apps](https://img.shields.io/badge/packages-roa-orange.svg?style=flat&logo=appveyor)](https://github.com/roacn/openwrt-packages) 
+
+
 ### 介绍
 
 ---
-
-| 源码                                                         | Luci版本                               | 内核版本             | 说明                     |
-| ------------------------------------------------------------ | ------------------------------------- | -------------------- | ------------------------ |
-| [![Lede](https://img.shields.io/badge/source-Lede-deeppink.svg?style=flat&logo=appveyor)](https://github.com/coolsnowwolf/lede) | 18.06                             | 5.4、5.10、5.15、6.1 | Lede                    |
-| [![openwrt](https://img.shields.io/badge/source-openwrt-tomato.svg?style=flat&logo=appveyor)](https://github.com/openwrt/openwrt) | 18.06、19.07、21.02、22.03、23.05  | 5.4、5.10、5.15、6.1 | OpenWrt                 |
-| [![lienol](https://img.shields.io/badge/source-Lienol-yellow.svg?style=flat&logo=appveyor)](https://github.com/Lienol/openwrt) | 19.07、21.02、22.03、23.05         | 5.4、5.10、5.15、6.1 |                         |
-| [![Mortal](https://img.shields.io/badge/source-Mortal-green.svg?style=flat&logo=appveyor)](https://github.com/immortalwrt/immortalwrt) | 18.06、21.02、23.05                 | 5.4、5.10、5.15、6.1  |                         |
-| [![apps](https://img.shields.io/badge/actions-roa-red.svg?style=flat&logo=appveyor)](https://github.com/roacn/build-actions) | 18.06、19.07、21.02、22.03、23.05 | 5.4、5.10、5.15、6.1 | 在线编译 |
-| [![apps](https://img.shields.io/badge/packages-roa-orange.svg?style=flat&logo=appveyor)](https://github.com/roacn/openwrt-packages) | 18.06、19.07、21.02、22.03、23.05  | 5.4、5.10、5.15、6.1 | 常用插件库              |
-| [![apps](https://img.shields.io/badge/applications-roa-blueviolet.svg?style=flat&logo=appveyor)](https://github.com/roacn/compile-packages) | 18.06、19.07、21.02、22.03、23.05 | 5.4、5.10、5.15、6.1 | 插件编译，定时更新      |
 
 使用Lede或Openwrt源码在线编译x86固件！
 
@@ -18,7 +15,7 @@
 
 
 
-### 编译
+### 固件编译
 
 ---
 
@@ -33,17 +30,21 @@
 
 
 
-
-
 - [开启缓存加速](https://github.com/roacn/common/blob/main/doc/ccache.md)
 
 
+
+- [基本uci命令](https://github.com/roacn/common/blob/main/doc/UCI.md)
+
+
+
+- [基本lxc操作命令](https://github.com/roacn/common/blob/main/doc/pct.md)
 
 <br />
 
 
 
-### 固件更新
+### 固件安装、更新
 
 ---
 
@@ -67,9 +68,13 @@
 
 ---
 
-OpenWrt用作lxc容器部署时，会有部分兼容性问题，做了以下补丁，目前完美运行。
 
 
+
+
+
+
+OpenWrt用作lxc容器部署时，会有部分兼容性问题，做了以下补丁。
 
 lxc版本OpenWrt部分补丁：
 

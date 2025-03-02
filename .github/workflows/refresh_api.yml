@@ -1,5 +1,5 @@
 #=================================================
-# https://github.com/roacn/build-actions
+# https://github.com/roacn/openwrt
 # Description: Refresh github release api files
 # Lisence: GNU General Public License v3.0
 # Author: Ss.
@@ -33,10 +33,10 @@ on:
           - 'Github_Tags'
 
 env:
-  GITHUB_REPOSITORY_URL: https://github.com/${{github.repository}}
-  GITHUB_REPOSITORY: ${{github.repository}}
-  GITHUB_ACTOR: ${{github.actor}}
-  GITHUB_WORKFLOW: ${{github.workflow}}
+  GITHUB_REPOSITORY_URL: https://github.com/${{ github.repository }}
+  GITHUB_REPOSITORY: ${{ github.repository }}
+  GITHUB_ACTOR: ${{ github.actor }}
+  GITHUB_WORKFLOW: ${{ github.workflow }}
   
 jobs:
   Job:
@@ -52,13 +52,13 @@ jobs:
       run: |
         mkdir -p Github_Api
         cd Github_Api
-        curl -H "Authorization: Bearer ${{ secrets.REPO_TOKEN }}" https://api.github.com/repos/${{github.repository}}/releases/tags/${{ github.event.inputs.RELEASE_TAG }} -o ${{ github.event.inputs.GITHUB_API }}
+        curl -H "Authorization: Bearer ${{ secrets.REPO_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/releases/tags/${{ github.event.inputs.RELEASE_TAG }} -o ${{ github.event.inputs.GITHUB_API }}
         if [[ $? -ne 0 ]]; then
-            wget -q --no-cookie --no-check-certificate https://api.github.com/repos/${{github.repository}}/releases/tags/${{ github.event.inputs.RELEASE_TAG }} -O ${{ github.event.inputs.GITHUB_API }}
+            wget -q --no-cookie --no-check-certificate https://api.github.com/repos/${{ github.repository }}/releases/tags/${{ github.event.inputs.RELEASE_TAG }} -O ${{ github.event.inputs.GITHUB_API }}
         fi
                 
     - name: Upload API to Github Release
-      uses: svenstaro/upload-release-action@v2
+      uses: svenstaro/upload-release-action@master
       if: steps.download.outcome == 'success'
       with:
         repo_token: ${{ secrets.REPO_TOKEN }}
@@ -67,10 +67,3 @@ jobs:
         tag: ${{ github.event.inputs.RELEASE_TAG }}
         overwrite: true
         
-    - name: Clean Actions
-      uses: Mattraks/delete-workflow-runs@v2
-      with:
-          token: ${{ secrets.REPO_TOKEN }}
-          repository: ${{github.repository}}
-          keep_minimum_runs: 7
-          retain_days: 7
